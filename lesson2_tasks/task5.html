@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h2>Задача 5</h2>
+	<p>Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.</p>
+
+	<style>
+		h2 {
+			font-size: 32px;
+		}
+
+
+		p {
+			font-weight: 600;
+			font-size: 22px;
+			color: rgb(93, 65, 65);
+		}
+
+		@media (max-width:767px) {
+			h2 {
+				font-size: 26px;
+			}
+
+			p {
+				font-weight: 600;
+				font-size: 20px;
+			}
+		}
+	</style>
+	<script>
+		const seconds = parseFloat(prompt(`Введіть кількість секунд`));
+
+		const resultHours = Math.floor(seconds / 3600);
+		const resultMinutes = Math.floor((seconds % 3600) / 60);
+
+		document.write(`<p>${seconds} секунд - це ${resultHours.toFixed(0)}годин, ${resultMinutes.toFixed(0)}хвилин</p>`)
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<title>task1</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css">
+	<!--<link rel="shortcut icon" href="favicon.ico">-->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="page">
+			<h2>Задача 1</h2>
+			<p>Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці</p>
+			<style>
+				tr {
+					font-size: 25px;
+				}
+
+				h2 {
+					font-size: 42px;
+				}
+
+				p {
+					font-weight: 600;
+					font-size: 32px;
+					color: rgb(113, 113, 113);
+				}
+
+				@media (max-width:767px) {
+					h2 {
+						font-size: 26px;
+					}
+
+					p {
+						font-weight: 600;
+						font-size: 20px;
+					}
+				}
+			</style>
+			<script>
+				let firstNumber = parseFloat(prompt(`Введіть перше дійсне число`));
+				let secondNumber = parseFloat(prompt(`Введіть друге дійсне число`));
+
+				let resultSum = firstNumber + secondNumber;
+				let resultMultiplication = firstNumber * secondNumber;
+				let resultParticle = firstNumber / secondNumber;
+
+				document.write(`
+					<table border='1px'>
+						<tr>
+							<th>Сума</th>
+							<td>${resultSum.toFixed(2)}</td>
+						</tr>
+						<tr>
+							<th>Множення</th>
+							<td>${resultMultiplication.toFixed(2)}</td>
+						</tr>
+						<tr>
+							<th>Ділення</th>
+							<td>${resultParticle.toFixed(2)}</td>
+						</tr>
+					</table>
+				`)
+			</script>
+		</main>
+	</div>
+</body>
+
+</html>

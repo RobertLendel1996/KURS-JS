@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<title>task2</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css">
+	<!--<link rel="shortcut icon" href="favicon.ico">-->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="page">
+			<style>
+				h2 {
+					font-size: 32px;
+				}
+
+				.task {
+					color: #612525;
+				}
+
+				p {
+					font-weight: 600;
+					font-size: 22px;
+					color: rgb(113, 113, 113);
+				}
+
+				@media (max-width:767px) {
+					h2 {
+						font-size: 26px;
+					}
+
+					p {
+						font-weight: 600;
+						font-size: 20px;
+					}
+				}
+			</style>
+			<h2>Задача 2</h2>
+			<p class="task">Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.</p>
+
+			<script>
+				let currentYear = new Date().getFullYear();
+				let yearOfBirdth = parseInt(prompt(`Введіть свою дату народження`));
+
+				let userAge = currentYear - yearOfBirdth;
+
+				document.write(`<p>
+					Вам ${userAge} років
+				</p>`);
+			</script>
+		</main>
+	</div>
+</body>
+
+</html>

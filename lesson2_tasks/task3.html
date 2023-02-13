@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<title>task2</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css">
+	<!--<link rel="shortcut icon" href="favicon.ico">-->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="page">
+			<h2>Задача 3</h2>
+			<p>Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).</p>
+			<style>
+				h2 {
+					font-size: 32px;
+				}
+
+				.task {
+					color: #612525;
+				}
+
+				p {
+					font-weight: 600;
+					font-size: 22px;
+					color: rgb(93, 65, 65);
+				}
+
+				@media (max-width:767px) {
+					h2 {
+						font-size: 26px;
+					}
+
+					p {
+						font-weight: 600;
+						font-size: 20px;
+					}
+				}
+			</style>
+			<script>
+				let quantityProduct = parseFloat(prompt(`Введіть кількість товару`));
+				let priceProduct = parseFloat(prompt(`Введіть ціну товару`));
+				const vat = 0.05;
+
+				let totalProducts = quantityProduct * priceProduct;
+				let resultPersentVat = totalProducts * vat;
+
+				document.write(`<p>Загальна вартість товару ${totalProducts}</p>
+					<p>${resultPersentVat} ПДВ від загальної вартості</p>`)
+			</script>
+		</main>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h2>Задача 6</h2>
+	<p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо
+		та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.</p>
+
+
+	<style>
+		h2 {
+			font-size: 32px;
+		}
+
+
+		p {
+			font-weight: 600;
+			font-size: 22px;
+			color: rgb(93, 65, 65);
+		}
+
+		@media (max-width:767px) {
+			h2 {
+				font-size: 26px;
+			}
+
+			p {
+				font-weight: 600;
+				font-size: 20px;
+			}
+		}
+	</style>
+
+	<script>
+		//FirstProduct
+		let priseFirstProduct = parseFloat(prompt(`Введіть вартість першого товару`));
+		let quantityFirstProduct = parseFloat(prompt(`Введіть кількість першого товару`));
+		//SecondProduct
+		let priseSecondProduct = parseFloat(prompt(`Введіть вартість другого товару`));
+		let quantitySecondProduct = parseFloat(prompt(`Введіть кількість другого товару`));
+		//ThirdProduct	
+		let priseThirdProduct = parseFloat(prompt(`Введіть вартість третього товару`));
+		let quantityThirdProduct = parseFloat(prompt(`Введіть кількість третього товару`));
+
+		let resultFirstProduct = priseFirstProduct * quantityFirstProduct;
+		let resultSecondProduct = priseSecondProduct * quantitySecondProduct;
+		let resultThirdProduct = priseThirdProduct * quantityThirdProduct;
+		let resultAllProduct = resultFirstProduct + resultSecondProduct + resultThirdProduct;
+
+		document.write(`
+	<table border = '1px'>
+        <tr>
+            <td>Назва</td>
+            <td>Ціна</td>
+            <td>Кількість</td>
+				<td>Результат</td>
+        </tr>
+        <tr>
+            <td style="border: #000 solid 1px;">1 Продукт</td>
+            <td style="border: #000 solid 1px;">${priseFirstProduct} $</td>
+            <td style="border: #000 solid 1px;">${quantityFirstProduct}</td>
+				<td style="border: #000 solid 1px;">${resultFirstProduct} $</td>
+        </tr>
+        <tr>
+            <td style="border: #000 solid 1px;">2 Продукт</td>
+            <td style="border: #000 solid 1px;">${priseSecondProduct} $</td>
+            <td style="border: #000 solid 1px;">${quantitySecondProduct}</td>
+				<td style="border: #000 solid 1px;">${resultSecondProduct} $</td>
+        </tr>
+        <tr>
+            <td style="border: #000 solid 1px;">3 Продукт</td>
+            <td style="border: #000 solid 1px;">${priseThirdProduct} $</td>
+            <td style="border: #000 solid 1px;">${quantityThirdProduct}</td>
+				<td style="border: #000 solid 1px;">${resultThirdProduct} $</td>
+        </tr>
+		  
+        <tr>
+            <td>Всього:</td>
+            <td>${resultAllProduct} $</td>
+        </tr>
+    
+    </table>
+	`);
+	</script>
+
+
+</body>
+
+</html>

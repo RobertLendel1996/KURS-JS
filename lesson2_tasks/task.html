@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<title>task</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css">
+	<!--<link rel="shortcut icon" href="favicon.ico">-->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="page">
+			<h2>Задача 0</h2>
+			<p class="task">Обчислити значення виразів </p>
+			<style>
+				h2 {
+					font-size: 42px;
+				}
+
+				p {
+					font-weight: 600;
+					font-size: 32px;
+					color: rgb(148, 148, 148);
+				}
+
+				.task {
+					color: rgb(49, 34, 34);
+				}
+
+				@media (max-width:767px) {
+					h2 {
+						font-size: 26px;
+					}
+
+					p {
+						font-weight: 600;
+						font-size: 20px;
+					}
+				}
+			</style>
+			<script>
+				let a = parseFloat(prompt(`Введіть число a`));
+				let b = parseFloat(prompt(`Введіть число b`));
+				let c = parseFloat(prompt(`Введіть число c`));
+
+				//S1
+				let S1 = a + 12 + b;
+				//S2
+				let S2 = Math.sqrt((a + b) / (2 * a));
+				//S3
+				let S3 = Math.cbrt((a + b) * c);
+				//S4
+				let S4 = Math.sin(a / (-b));
+
+				document.write(`
+					<p> S1 = ${S1}</p>
+					<p> S2 = ${S2}</p>
+					<p> S3 = ${S3}</p>
+					<p> S4 = ${S4}</p>
+				`)
+			</script>
+
+		</main>
+	</div>
+</body>
+
+</html>
