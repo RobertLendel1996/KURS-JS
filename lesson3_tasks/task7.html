@@ -14,15 +14,19 @@
 	<script>
 		let numOfTheMonth = parseInt(prompt('Введіть номер місяця (1-12)'));
 
-		if (numOfTheMonth <= 2 || numOfTheMonth == 12) {
+		if (numOfTheMonth <= 2 || numOfTheMonth == 12)
 			document.write(`Зима`);
-		} else if (numOfTheMonth <= 5) {
+
+		else if (numOfTheMonth <= 5)
 			document.write(`Весна`)
-		} else if (numOfTheMonth <= 8) {
+
+		else if (numOfTheMonth <= 8)
 			document.write(`Літо`)
-		} else if (numOfTheMonth <= 11) {
+
+		else if (numOfTheMonth <= 11)
 			document.write(`Осінь`)
-		} else document.write(`Ви ввели некоректне число`)
+
+		else document.write(`Ви ввели некоректне число`)
 	</script>
 </body>
 

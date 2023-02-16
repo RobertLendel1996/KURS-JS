@@ -16,15 +16,15 @@
 		const productPrice = parseFloat(prompt('Введіть ціну товару'));
 		const userMoney = parseFloat(prompt('Введіть кількість грошей'));
 
-		if (userMoney < productPrice) {
+		if (userMoney < productPrice)
 			document.write(`У вас недостаньо коштів.`)
-		} else if (userMoney - productPrice >= 4) {
+
+		else if (userMoney - productPrice >= 4) {
 			const lottery = confirm(`Бажаєте придбати лотерею за 4 грн? Ваш баланс: ${userMoney - productPrice} грн`);
-			if (lottery) {
-				document.write(`Ваша оплата успішна. Ваш баланс: ${userMoney - productPrice - 4}`);
-			} else {
+			if (lottery)
+				document.write(`Ваша оплата успішна. Ваш баланс: ${userMoney - productPrice - 4}`)
+			else
 				document.write(`Ваша оплата успішна. Ваш баланс ${userMoney - productPrice} грн`);
-			}
 		} else document.write(`Ваша оплата успішна. Ваш баланс: ${userMoney - productPrice} грн`)
 	</script>
 </body>

@@ -21,15 +21,16 @@
 
 		let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber) + 1);
 
-		if (number === randomNumber) {
+		if (number === randomNumber)
 			document.write(`Ви виграли`);
-		} else {
+
+		else {
 			alert(`Ви не виграли`);
 			number = parseInt(prompt('Введіть число від 1 до 5'));
 
-			if (number === randomNumber) {
+			if (number === randomNumber)
 				document.write(`Ви виграли`);
-			} else document.write(`Ви не виграли. Нажаль спроби закінчилися`)
+			else document.write(`Ви не виграли. Нажаль спроби закінчилися`)
 		}
 	</script>
 </body>
