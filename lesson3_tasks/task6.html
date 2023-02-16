@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task6</title>
+</head>
+
+<body>
+	<h1>Задача 6</h1>
+	<p>З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.</p>
+	<script>
+		let numDay = parseInt(prompt('Введіть номер дня тижня (1-7)', '1'))
+
+		let Monday = 1
+		let Tuesday = 2
+		let Wednesday = 3
+		let Thursday = 4
+		let Friday = 5
+		let Saturday = 6
+		let Sunday = 7
+
+		if (numDay === Monday) {
+			document.write(`Понеділок`)
+		} else if (numDay === Tuesday) {
+			document.write(`Вівторок`)
+		} else if (numDay === Wednesday) {
+			document.write(`Середа`)
+		} else if (numDay === Thursday) {
+			document.write(`Четвер`)
+		} else if (numDay === Friday) {
+			document.write(`П’ятниця`)
+		} else if (numDay === Saturday) {
+			document.write(`Субота`)
+		} else if (numDay === Sunday) {
+			document.write(`Неділя`)
+		} else document.write(`Ви ввели некоретне число`)
+	</script>
+</body>
+
+</html>

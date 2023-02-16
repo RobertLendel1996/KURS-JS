@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task5</title>
+</head>
+
+<body>
+	<h1>Задача 5</h1>
+	<p>З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести
+		на екран назву транспортного засобу, яким він може керувати.</p>
+	<script>
+		let categoryDriver = prompt('Введіть назву категорії водія (A,B,C)')
+
+		let motocycle = 'A'
+		let car = 'B'
+		let carBig = 'C'
+
+		if (categoryDriver === motocycle) {
+			document.write(`Ви можете водити мотоцикл`)
+		} else if (categoryDriver === car) {
+			document.write(`Ви можете водити автомобіль`)
+		} else if (categoryDriver === carBig) {
+			document.write(`Ви можете водити вантажний автомобіль`)
+		} else document.write(`Ви не можете водити транспортний засіб`)
+	</script>
+</body>
+
+</html>
