@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2</title>
+</head>
+
+<body>
+	<p>Задача 2. Створити 10 елементів для введення цін продуктів</p>
+	<script>
+		document.write('<form>')
+		for (let i = 1; i < 11; i++) {
+			document.write(`<p>
+					<span> Product ${i} </span>
+					<input type="text">
+					</p>
+				`)
+		}
+		document.write('</form>')
+	</script>
+	<style>
+		p {
+			font-size: 22px;
+			margin-bottom: 20px;
+		}
+	</style>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task9</title>
+</head>
+
+<body>
+	<p>Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати
+		confirm).</p>
+	<script>
+		let userNumber = parseInt(prompt('Введіть число (1-10)'))
+		const minNumber = 1
+		const maxNumber = 10
+
+		for (var counter = 1; counter < +Infinity; counter++) {
+			let random = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+			if (confirm(`Спроба ${counter}. Ваше число ${random}?`)) break
+		}
+		document.write(`Комп’ютер вгадав ваше число ${userNumber} з ${counter} спроби`)
+	</script>
+</body>
+
+</html>
