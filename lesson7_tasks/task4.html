@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task4</title>
+</head>
+
+<body>
+	<p> Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+		додатних, кількість більших за 100.</p>
+	<style>
+		p {
+			font-size: 27px;
+		}
+	</style>
+	<script>
+		function getThreeNumbers(a, b, c) {
+			let paired = 0
+			let positive = 0
+			let over100 = 0
+
+			if (a % 2 === 0) paired++
+			if (b % 2 === 0) paired++
+			if (c % 2 === 0) paired++
+
+			if (a > 0) positive++
+			if (b > 0) positive++
+			if (c > 0) positive++
+
+			if (a > 100) over100++
+			if (b > 100) over100++
+			if (c > 100) over100++
+
+			return (`
+            <p>кількість парних: ${paired}</p>
+            <p>кількість додатніх: ${positive}</p>
+            <p>кількість більших за 100: ${over100}</p>
+         `)
+		}
+		const number_1 = parseInt(prompt('Введіть перше число'))
+		const number_2 = parseInt(prompt('Введіть друге число'))
+		const number_3 = parseInt(prompt('Введіть третє число'))
+		document.write(`<p>Ви задали ${number_1},${number_2},${number_3}</p>`)
+		let resultgetNumbersWeek = getThreeNumbers(number_1, number_2, number_3);
+		document.write(resultgetNumbersWeek)
+	</script>
+</body>
+
+</html>

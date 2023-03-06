@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task10</title>
+</head>
+
+<body>
+	<p> Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для
+		додатних показів температури.
+	</p>
+	<style>
+		p {
+			font-size: 27px;
+		}
+	</style>
+	<script>
+		function countAvaragePositiveNumber(a) {
+			let positiveNumber = 0
+			const minNegativeNumber = -40
+			const maxNegativeNumber = 40
+			let countNumber = 0
+
+			for (let i = 0; i <= a; i++) {
+				const randomNumber = minNegativeNumber + Math.floor(Math.random() * (maxNegativeNumber - minNegativeNumber + 1))
+				if (randomNumber > 0)
+					positiveNumber += randomNumber
+				countNumber++
+				document.write(`<p>${i} значення дорівнює ${randomNumber}</p>`)
+			}
+			positiveNumber /= countNumber
+			return positiveNumber
+		}
+		let resultCountAvaragePositiveNumber = countAvaragePositiveNumber(parseInt(prompt('Введіть кількість показників температур')))
+		document.write(`<p>Середнє значення додатніх температур дорівнює ${resultCountAvaragePositiveNumber}</p>`)
+	</script>
+</body>
+
+</html>

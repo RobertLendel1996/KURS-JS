@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task3</title>
+</head>
+
+<body>
+	<p> Створити окремі функції, які для 4 чисел знаходять:
+		1)суму;
+		2)добуток;
+		3)середнє арифметичне;
+		4)мінімальне значення.
+	</p>
+	<style>
+		p {
+			font-size: 20px;
+		}
+
+		.weight {
+			display: block;
+			color: black;
+			font-weight: 700;
+			font-size: 26px;
+		}
+	</style>
+	<script>
+		let number1 = parseFloat(prompt('Введіть перше число'))
+		let number2 = parseFloat(prompt('Введіть друге число'))
+		let number3 = parseFloat(prompt('Введіть третє число'))
+		let number4 = parseFloat(prompt('Введіть чутверте число'))
+
+		function getSum(a, b, c, d) {
+			return (a + b + c + d)
+		}
+
+		function getProduct(a, b, c, d) {
+			return (a * b * c * d)
+		}
+
+		function getDivision(a, b, c, d) {
+			return ((a + b + c + d) / 4)
+		}
+
+		function getArithmetic(a, b, c, d) {
+			return (Math.min(+b + c + d))
+		}
+
+		document.write(`<p>Сума чисел ${number1},${number2},${number3} i ${number4} <div class="weight">дорівнює ${getSum(number1,number2,number3,number4)}</div></p>`)
+		document.write(`<p>добуток чисел ${number1},${number2},${number3} i ${number4} дорівнює <div  class="weight">${getProduct(number1,number2,number3,number4)}</div></p>`)
+		document.write(`<p>середнє арифметичне чисел ${number1},${number2},${number3} i ${number4} дорівнює <div class="weight">${getDivision(number1,number2,number3,number4)}</div></p>`)
+		document.write(`<p>мінімальне значення чисел ${number1},${number2},${number3} i ${number4} дорівнює <div class="weight">${getArithmetic(number1,number2,number3,number4)}</div></p>`)
+	</script>
+
+</body>
+
+</html>

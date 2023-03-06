@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task9</title>
+</head>
+
+<body>
+	<p>Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних
+		показів температури.</p>
+	<style>
+		p {
+			font-size: 27px;
+		}
+	</style>
+	<script>
+		function countNegativeTemp(a) {
+			let countNegative = 0
+			const minNegativeTemp = -40
+			const maxNegativeTemp = 40
+			for (let i = 1; i <= a; i++) {
+				const randomTemp = minNegativeTemp + Math.floor(Math.random() * (maxNegativeTemp - minNegativeTemp + 1))
+				if (randomTemp < 0) countNegative++
+				document.write(`<p>${i} значення дорівнює ${randomTemp}</p>`)
+			}
+			return countNegative
+		}
+		let resultCountNegativeTemp = countNegativeTemp(parseInt(prompt('Введіть кількість показників температур')))
+		document.write(`<p>Кількість від’ємних температур ${resultCountNegativeTemp}</p>`)
+	</script>
+</body>
+
+</html>
