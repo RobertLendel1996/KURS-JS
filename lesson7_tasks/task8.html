@@ -23,10 +23,10 @@
 		function banner(image, title, link) {
 			return `<a href="${link}" target="_blank">
 				<div class="title">${title}</div>
-				<img src="../${image}" alt="Image">
+				<img src="${image}" alt="Image">
 			</a>`
 		}
-		let resultBanner = banner("img/lesson7/image1.png", "cream NicoPlanet", "https://google.com")
+		let resultBanner = banner("../img/lesson7/image1.png", "cream NicoPlanet", "https://google.com")
 		document.write(`${resultBanner}`)
 	</script>
 </body>
