@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task5</title>
+</head>
+
+<body>
+	<p>Дано послідовність оцінок учня. Підрахувати кількість:
+		1) двійок
+		2) кількість хороших оцінок (добре, відмінно);
+		3) кількість оцінок, які нижче середнього.</p>
+	<style>
+		p {
+			font-size: 24px;
+		}
+	</style>
+	<script>
+		const mathematicsRatings = 2
+		const philosophyRatings = 5
+		const languageRatings = 3
+		const historyRatings = 4
+		const anatomyRatings = 4
+
+		function countRatings(...ratings) {
+			let goodGrade = 0
+			let badGrade = 0
+			let notBadGrade = 0
+			for (let i = 0; i < ratings.length; i++) {
+				if (ratings[i] <= 2) badGrade++
+				if (ratings[i] > 3) goodGrade++
+				if (ratings[i] === 3) notBadGrade++
+			}
+
+			return `<p>В учня ${badGrade} двійка(ок), ${goodGrade} хороших оцінок, i ${notBadGrade} трійкa(ок)</p>`
+		}
+		document.write(countRatings(mathematicsRatings, philosophyRatings, languageRatings, historyRatings, anatomyRatings))
+	</script>
+</body>
+
+</html>

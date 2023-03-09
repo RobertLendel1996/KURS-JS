@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task4</title>
+</head>
+
+<body>
+	<p>Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+		• починаються на букву «А»;
+		• перша і остання літери співпадають;
+		• складаються з більше ніш 5 символів;</p>
+	<style>
+		p {
+			font-size: 24px;
+		}
+	</style>
+	<script>
+		const autoNumbers = ['A2354A', 'AO4365AB', 'DS32K3', 'A32R', 'A430F23A']
+
+		function getSimilarity(autoNumbersArr) {
+			let firstA = 0
+			let firstAndLastA = 0
+			let moreFive = 0
+
+			for (let i = 0; i < autoNumbersArr.length; i++) {
+				if (autoNumbers[i][0] === 'A') firstA++
+				if (autoNumbers[i][0] === autoNumbers[i][autoNumbers[i].length - 1]) firstAndLastA++
+				if (autoNumbers[i].length > 5) moreFive++
+			}
+			return `
+            <p>Номери починаються на А: ${firstA} рази</p>
+            <p>Перша і остання співпадають: ${firstAndLastA} рази</p>
+            <p>Складаються з більше ніж 5 символів: ${moreFive} рази</p>
+         `
+		}
+
+
+		document.write(getSimilarity(autoNumbers))
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task7</title>
+</head>
+
+<body>
+	<p>Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+		за весь рік;
+		у першій половині року;
+		у другій половині року;
+		за літо;
+		за ІІ квартал;
+		за парні місяці (з парними номерами);
+		за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+	</p>
+	<style>
+		p {
+			font-size: 27px;
+		}
+	</style>
+	<script>
+		function listOfPayments(amountMonths) {
+			let paymentsArray = []
+			for (let i = 0; i < amountMonths; i++) {
+				const randomNumber = Math.floor(Math.random() * 100) + 1
+				paymentsArray.push(randomNumber)
+			}
+			return paymentsArray
+		}
+
+		function findTotalAmount(paymentsList) {
+			let allYear = 0
+			let firstHalfYear = 0
+			let secondHalfYear = 0
+			let summerMonths = 0
+			let secondQuarter = 0
+			let evenMonths = 0
+			let initialMonths = 0
+			for (let i = 0; i < paymentsList.length; i++) {
+				allYear += paymentsList[i]
+				if (i < 6)
+					firstHalfYear += paymentsList[i]
+				if (i > 5)
+					secondHalfYear += paymentsList[i]
+				if (i > 4 && i < 8)
+					summerMonths += paymentsList[i]
+				if (i > 2 && i < 6)
+					secondQuarter += paymentsList[i]
+				if (i % 2 === 0)
+					evenMonths += paymentsList[i]
+				if (i === 2 || i === 5 || i === 8 || i === 11)
+					initialMonths += paymentsList[i]
+			}
+			return `
+				<p>За весь рік ${allYear}</p>
+				<p>У першій половині року ${firstHalfYear}</p>
+				<p>У другій половині року ${secondHalfYear}</p>
+				<p>За літо ${summerMonths}</p>
+				<p>За ІІ квартал ${secondQuarter}</p>
+				<p>за парні місяці ${evenMonths}</p>
+				<p>За місяці, які є початковими в сезоні ${initialMonths}</p>
+			`
+		}
+		document.write(findTotalAmount(listOfPayments(12)))
+	</script>
+</body>
+
+</html>

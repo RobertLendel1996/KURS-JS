@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task9</title>
+</head>
+
+<body>
+	<p>Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів.
+		Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка
+		пуста, якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки, куди стріляє. Гра
+		продовжується до тих пір, поки не будуть потоплені усі кораблі.</p>
+	<style>
+
+	</style>
+	<script>
+		const cellsNumber = parseInt(prompt(`Введіть кількість клітинок:`))
+		const boatsNumber = parseInt(prompt(`Введіть кількість одиночних кораблів:`))
+
+		function collectArrey(cells, boats) {
+			let cellsArr = []
+			for (let i = 0; i < cells; i++) {
+				for (let j = 0; j < cells; j++) {
+					const boatOrNot = Math.floor(Math.random() * 2)
+					cellsArr.push(boatOrNot)
+					break
+				}
+			}
+			return cellsArr
+		}
+
+		function buildGame(arrWithBoats) {
+			let result = `Вітаю. Ви потопили всі кораблі!`
+			stop: for (let i = 0; i < arrWithBoats.length; i++) {
+				if (arrWithBoats.includes(1)) {
+					const userGuess = parseInt(prompt(`Вгадайте в якій клітинці знаходяться кораблі. Варіанти з 0 до ${cellsNumber - 1}`))
+					for (let j = userGuess; j < arrWithBoats.length; j++) {
+						if (arrWithBoats[userGuess] === 1)
+							arrWithBoats[userGuess] = 0
+						break
+					}
+				} else {
+					break stop
+				}
+			}
+			return result
+		}
+		document.write(`${buildGame(collectArrey(cellsNumber, boatsNumber))}<br>`)
+	</script>
+</body>
+
+</html>

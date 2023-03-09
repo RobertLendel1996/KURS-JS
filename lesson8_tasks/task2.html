@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task2</title>
+</head>
+
+<body>
+	<p>Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:
+		номери днів, протягом яких кількість відвідувачів була меншою за 20;
+		номери днів, коли кількість відвідувачів була мінімальною;
+		номери днів, коли кількість відвідувачів була мінімальною;
+		загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.
+	</p>
+	<script>
+		const weekNumberVisiters = [50, 19, 19, 63, 42, 89, 124]
+
+		function getDaysNumberLess_20(weekNumberVisiters) {
+			let lessThen_20 = []
+			let result = ``
+			let day
+			for (let i = 0; i < weekNumberVisiters.length; i++) {
+				if (weekNumberVisiters[i] < 20)
+					lessThen_20.push(i + 1)
+			}
+			for (let i = 0; i < lessThen_20.length; i++) {
+				switch (lessThen_20[i]) {
+					case 1:
+						day = `Понеділок`
+						break;
+					case 2:
+						day = `Вівторок`
+						break;
+					case 3:
+						day = `Середа`
+						break;
+					case 4:
+						day = `Четвер`
+						break;
+					case 5:
+						day = `Пʼятниця`
+						break;
+					case 6:
+						day = `Субота`
+						break;
+					case 7:
+						day = `Неділя`
+				}
+				result += `<span>${day}; <span>`
+			}
+			return result
+		}
+
+		function getMinVisitors(weekNumberVisiters) {
+			let minimumVisitors = +Infinity
+			let minCustomersDays = []
+			let result = ``
+			let day
+			for (let i = 0; i < weekNumberVisiters.length; i++) {
+				if (weekNumberVisiters[i] < minimumVisitors)
+					minimumVisitors = weekNumberVisiters[i]
+			}
+			for (let j = 0; j < weekNumberVisiters.length; j++) {
+				if (minimumVisitors === weekNumberVisiters[j])
+					minCustomersDays.push(j + 1)
+			}
+			for (let i = 0; i < minCustomersDays.length; i++) {
+				switch (minCustomersDays[i]) {
+					case 1:
+						day = `Понеділок`
+						break;
+					case 2:
+						day = `Вівторок`
+						break;
+					case 3:
+						day = `Середа`
+						break;
+					case 4:
+						day = `Четвер`
+						break;
+					case 5:
+						day = `Пʼятниця`
+						break;
+					case 6:
+						day = `Субота`
+						break;
+					case 7:
+						day = `Неділя`
+				}
+				result += `<span>${day}; <span>`
+			}
+			return result
+		}
+
+		function getMaxVisitors(weekNumberVisiters) {
+			let maximumVisitors = -Infinity
+			let maxCustomersDays = []
+			let result = ``
+			let day
+			for (let i = 0; i < weekNumberVisiters.length; i++) {
+				if (weekNumberVisiters[i] > maximumVisitors)
+					maximumVisitors = weekNumberVisiters[i]
+			}
+			for (let j = 0; j < weekNumberVisiters.length; j++) {
+				if (maximumVisitors === weekNumberVisiters[j])
+					maxCustomersDays.push(j + 1)
+			}
+			for (let i = 0; i < maxCustomersDays.length; i++) {
+				switch (maxCustomersDays[i]) {
+					case 1:
+						day = `Понеділок`
+						break;
+					case 2:
+						day = `Вівторок`
+						break;
+					case 3:
+						day = `Середа`
+						break;
+					case 4:
+						day = `Четвер`
+						break;
+					case 5:
+						day = `Пʼятниця`
+						break;
+					case 6:
+						day = `Субота`
+						break;
+					case 7:
+						day = `Неділя`
+				}
+				result += `<span>${day}; <span>`
+			}
+			return result
+		}
+
+		function getSumm(weekNumberVisiters) {
+			let workingDays = 0
+			let daysOff = 0
+			for (let i = 0; i < weekNumberVisiters.length; i++) {
+				if (i < 5)
+					workingDays += weekNumberVisiters[i]
+				else
+					daysOff += weekNumberVisiters[i]
+			}
+			return `В робочі дні: ${workingDays};<br> У вихідні: ${daysOff}`
+		}
+
+		document.write(`
+      Дні, коли менше 20-ти відвідувачів: ${getDaysNumberLess_20(weekNumberVisiters)} <br>
+      День(ні) тижня з мінімальною відвіданістю: ${getMinVisitors(weekNumberVisiters)} <br>
+      День(ні) тижня з максимальною відвіданістю: ${getMaxVisitors(weekNumberVisiters)} <br>
+      ${getSumm(weekNumberVisiters)}.
+      `)
+	</script>
+</body>
+
+</html>

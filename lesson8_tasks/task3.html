@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task3</title>
+</head>
+
+<body>
+	<p> Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</p>
+	<style>
+
+	</style>
+	<script>
+		const nameStudents = ['Василь', 'Іван', 'Михайло', 'Іван', 'Микола', 'Василь', 'Іван', 'Михайло']
+
+		function selectNamesStudents(nameStudents) {
+			neededName = 0
+			for (let i = 0; i < nameStudents.length; i++) {
+				if (nameStudents[i] === 'Іван') {
+					neededName++
+				}
+			}
+			return neededName
+		}
+
+		document.write(`Ім’я Іван зустрічається ${selectNamesStudents(nameStudents)} рази`)
+	</script>
+
+</body>
+
+</html>
