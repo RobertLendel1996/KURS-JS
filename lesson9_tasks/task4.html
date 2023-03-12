@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task4</title>
+</head>
+
+<body>
+	<p>Дано масив елементів. Вивести на екран елементи, що більші за 100 </p>
+	<script>
+		let userNumber = parseInt(prompt('Введіть кількість елементів для масиву'))
+
+		function getUserNumbers(userNumber) {
+			let array = []
+			for (let i = 0; i < userNumber; i++) {
+				const randomNumber = 1 + Math.floor(Math.random() * (150 - 1 + 1))
+				array.push(randomNumber)
+			}
+			return array
+		}
+
+		let newArray = getUserNumbers(userNumber)
+
+		let arrayMore100 = []
+		for (const elementMore100 of newArray) {
+			if (elementMore100 > 100) arrayMore100.push(elementMore100)
+		}
+		document.write(`
+			<p>Дано масив: ${newArray}</p>
+			<p>Новий масив: ${arrayMore100}</p>
+		`)
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task1</title>
+</head>
+
+<body>
+	<p>Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів заповнених
+		нулями.
+	</p>
+	<script>
+		const userNumber = parseInt(prompt('Введіть кількість елементів для масиву'))
+
+		let array = new Array(userNumber)
+		array.fill(0)
+
+		document.write(`Масив з нулями: ${array}`)
+	</script>
+</body>
+
+</html>

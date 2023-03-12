@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task8</title>
+</head>
+
+<body>
+	<p>Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»</p>
+	<style>
+		span {
+			display: inline-block;
+			font-weight: 700;
+		}
+	</style>
+	<script>
+		let numbersCar = ['AF320FS', 'BE230NE', 'DS23L2', 'AA230JE', '230DS23']
+
+		let newNumbersCar = numbersCar.filter(
+			(number, index, arrRef) => number[0] === 'A'
+		)
+
+
+		document.write(`
+			<p>Дано масив з номерними знаками <span>${numbersCar}</span></p>
+			<p>Новий масив, номерних знаків, які починаються з букви 'A' - <span>${newNumbersCar}</span></p>
+		`)
+	</script>
+</body>
+
+</html>
