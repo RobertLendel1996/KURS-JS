@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">
+		Завдання 1. Дано історію цін на цінні папери за деякий період
+		(згенерувати від 1 до 10000).
+	</h1>
+
+	<script>
+		// Генеруємо масив цін
+
+		function generateArrPrices(count) {
+			const pricesList = new Array(count).fill(0).map((element, index, arrRef) =>
+				arrRef[index] = Math.floor(Math.random() * 10000) + 1
+			)
+			return pricesList
+		}
+		const pricesList = generateArrPrices(12)
+		document.write(`<p>Дано масив ${pricesList}</p>`)
+		//========================================================================================================================================================
+		// 1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+		const pricesGreaterThan1000 = pricesList.filter(element => element > 1000)
+		//document.write(`Завдання 1: ${pricesGreaterThan1000}`)
+		console.log(`Завдання 1: ${pricesGreaterThan1000}`);
+		//========================================================================================================================================================
+		//2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+		const numbersOfGreaterThan1000 = pricesList.reduce((numbersOfGreaterThan1000, element, index, arrRef) => {
+			if (element > 1000)
+				numbersOfGreaterThan1000.push(index)
+			return numbersOfGreaterThan1000
+		}, [])
+		//document.write(`Завдання 2: ${numbersOfGreaterThan1000}`)
+		console.log(`Завдання 2: ${numbersOfGreaterThan1000}`);
+		//========================================================================================================================================================
+		// 3)Сформувати список з тих цін, які більші за попереднє значення
+		const pricesBigThanPrevious = pricesList.reduce((pricesBigThanPrevious, element, index, arrRef) => {
+			if (element > arrRef[index - 1]) {
+				pricesBigThanPrevious.push(element)
+			}
+			return pricesBigThanPrevious
+		}, [])
+		//document.write(`Завдання 3: ${pricesBigThanPrevious}`)
+		console.log(`Завдання 3: ${pricesBigThanPrevious}`);
+		//========================================================================================================================================================
+		//4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+		const maxPrice = pricesList.reduce((previous, element) =>
+			element > previous ? element : previous, )
+		const pricesInPersent = pricesList.map(element =>
+			Math.round(element * 100 / maxPrice)
+		)
+		//document.write(`Завдання 4: ${pricesInPersent}`)
+		console.log(`Завдання 4: ${pricesInPersent}`);
+		//========================================================================================================================================================
+		// 5)Підрахувати кількість змін цін
+		let pricesSort = pricesList.sort((price1, price2) => {
+			if (price1 > price2) return 1
+			else if (price1 < price2) return -1
+			else return 0
+		})
+		const countNumberOfPriceChanges = pricesSort.reduce((previous, element, index, arrRef) => {
+			if (index > 0 && previous !== arrRef[index - 1])
+				previous += 1
+			return previous
+		}, 0)
+		//document.write(`Завдання 5: Кількість змін: ${countNumberOfPriceChanges}`)
+		console.log(`Завдання 5: Кількість змін: ${countNumberOfPriceChanges}`)
+		//========================================================================================================================================================
+		// 6)Визначити, чи є ціна, що менше 1000
+		const priceBigThan1000 = pricesList.some(element => element < 1000)
+		// if(priceBigThan1000) document.write('Завдання 6: Є ціна, менша за 1000')
+		// else document.write('Завдання 6: Немає ціни, меншої за 1000')
+		if (priceBigThan1000) console.log('Завдання 6: Є ціна, менша за 1000')
+		else console.log('Завдання 6: Немає ціни, меншої за 1000')
+		//========================================================================================================================================================
+		// 7)Визначати, чи усі ціни більше за 1000
+		const everyPricesBigThan1000 = pricesList.every(element => element > 1000)
+		// if (everyPricesBigThan1000) document.write('Завдання 7: Всі елементи більші за 1000')
+		// else document.write('Завдання 7: Не всі елементи більші за 1000')
+		if (everyPricesBigThan1000) console.log('Завдання 7: Всі елементи більші за 1000')
+		else console.log('Завдання 7: Не всі елементи більші за 1000')
+		//========================================================================================================================================================
+		// 8)Підрахувати кількість цін, що більше за 1000
+		const countPricesBigThan1000 = pricesList.reduce((previous, element) => {
+			if (element > 1000)
+				previous += 1
+			return previous
+		}, 0)
+		//document.write(`Завдання 8: Цін, більших за 1000: ${countPricesBigThan1000}`)
+		console.log(`Завдання 8: Цін, більших за 1000: ${countPricesBigThan1000}`)
+		//========================================================================================================================================================
+		//9)Підрахувати суму цін, що більше за 1000
+		const sumPricesBigThan1000 = pricesList.reduce((previous, element) => {
+			if (element > 1000)
+				previous += element
+			return previous
+		}, 0)
+		//document.write(`Завдання 9: Сума всіх цін, більших за 1000: ${sumPricesBigThan1000}`)
+		console.log(`Завдання 9: Сума всіх цін, більших за 1000: ${sumPricesBigThan1000}`)
+		//========================================================================================================================================================
+		// 10)Знайти першу ціну, що більше за 1000
+		const firstPriceBigThan1000 = pricesList.find(element => element > 1000)
+		//document.write(`Завдання 10: Перша ціна, більша за 1000: ${firstPriceBigThan1000}`)
+		console.log(`Завдання 10: Перша ціна, більша за 1000: ${firstPriceBigThan1000}`)
+		//========================================================================================================================================================
+		// 11)Знайти індекс першої ціни, що більше за 1000
+		const firstIndexPriceBigThan1000 = pricesList.findIndex(element => element > 1000)
+		//document.write(`Завдання 11: Перший індекс ціни, більший за 1000: ${firstIndexPriceBigThan1000}`)
+		console.log(`Завдання 11: Перший індекс ціни, більший за 1000: ${firstIndexPriceBigThan1000}`)
+		//========================================================================================================================================================
+		// 12)Знайти останню ціну, що більше за 1000
+		const lastPriceBigThan1000 = pricesList.findLast(element => element > 1000)
+		//document.write(`Завдання 12: Остання ціна, більша за 1000: ${lastPriceBigThan1000}`)
+		console.log(`Завдання 12: Остання ціна, більша за 1000: ${lastPriceBigThan1000}`)
+		//========================================================================================================================================================
+		// 13)Знайти індекс останньої ціни, що більше за 1000
+		const lastIndexPriceBigThan1000 = pricesList.findLastIndex(element => element > 1000)
+		//document.write(`Завдання 13: Індекс останньої ціни, більшої за 1000: ${lastIndexPriceBigThan1000}`)
+		console.log(`Завдання 13: Індекс останньої ціни, більшої за 1000: ${lastIndexPriceBigThan1000}`)
+	</script>
+</body>
+
+</html>
