@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task1</title>
+</head>
+
+<body>
+	<p>Знайти суми елементів у вказаній області</p>
+	<script>
+		let array = [
+			[1, 2, 3, 4],
+			[2, 3, 4, 5],
+			[1, 3, 5, 7],
+			[1, 2, 3, 4]
+		]
+		console.log(array)
+		let firstSum = 0
+		let secondSum = 0
+		let thirdSum = 0
+		let fourSum = 0
+		//========================================================================================================================================================
+		for (let rowIndex = 0; rowIndex <= 1; rowIndex++) {
+			for (let columnIndex = 0; columnIndex <= 1; columnIndex++) {
+				firstSum += array[rowIndex][columnIndex]
+			}
+		}
+		document.write(`<p>Сума  елементів у  вказаній області (0,0) ${firstSum}</p>`)
+		//========================================================================================================================================================
+		for (let rowIndex = 0; rowIndex <= 1; rowIndex++) {
+			for (let columnIndex = 2; columnIndex <= 3; columnIndex++) {
+				secondSum += array[rowIndex][columnIndex]
+			}
+		}
+		document.write(`<p>Сума  елементів у  вказаній області (0,1) ${secondSum}</p>`)
+		//========================================================================================================================================================
+		for (let rowIndex = 2; rowIndex <= 3; rowIndex++) {
+			for (let columnIndex = 0; columnIndex <= 1; columnIndex++) {
+				thirdSum += array[rowIndex][columnIndex]
+			}
+		}
+		document.write(`<p>Сума  елементів у  вказаній області (1,0) ${thirdSum}</p>`)
+		//========================================================================================================================================================
+		for (let rowIndex = 2; rowIndex <= 3; rowIndex++) {
+			for (let columnIndex = 2; columnIndex <= 3; columnIndex++) {
+				fourSum += array[rowIndex][columnIndex]
+			}
+		}
+		document.write(`<p>Сума елементів у вказаній області (1,1) ${fourSum}</p>`)
+		//========================================================================================================================================================
+		let sumRowsNull = 0
+		let sumRowsTwo = 0
+		//Сума нульового рядка
+		for (let rowIndex = 0; rowIndex <= 0; rowIndex++) {
+			for (let columnIndex = 0; columnIndex <= 3; columnIndex++) {
+				sumRowsNull += array[rowIndex][columnIndex]
+			}
+		}
+		//Сума другого рядка
+		for (let rowIndex = 2; rowIndex <= 2; rowIndex++) {
+			for (let columnIndex = 0; columnIndex <= 3; columnIndex++) {
+				sumRowsTwo += array[rowIndex][columnIndex]
+			}
+		}
+		let sumEvenRows = sumRowsNull + sumRowsTwo
+		document.write(`<p>Сума парних рядків ${sumEvenRows}</p>`)
+		//========================================================================================================================================================
+		let sumColumnOne = 0
+		let sumColumnThree = 0
+
+		for (let rowIndex = 0; rowIndex <= 3; rowIndex++) {
+			for (let columnIndex = 1; columnIndex <= 1; columnIndex++) {
+				sumColumnOne += array[rowIndex][columnIndex]
+			}
+		}
+
+		for (let rowIndex = 0; rowIndex <= 3; rowIndex++) {
+			for (let columnIndex = 3; columnIndex <= 3; columnIndex++) {
+				sumColumnThree += array[rowIndex][columnIndex]
+			}
+		}
+
+		let sumOddColumns = sumColumnOne + sumColumnThree
+		document.write(`<p>Сума непарних стовпців ${sumOddColumns}</p>`)
+		//========================================================================================================================================================
+		let sum = 0
+		for (let rowIndex = 0; rowIndex < array.length; rowIndex++) {
+			let startColumnIndex
+			if (rowIndex % 2 === 0) startColumnIndex = 1
+			else startColumnIndex = 0
+			for (let columnIndex = startColumnIndex; columnIndex < array[rowIndex].length; columnIndex += 2) {
+				sum += array[rowIndex][columnIndex]
+			}
+		}
+		document.write(`<p>У парних рядках – непарні стовпці, у непарних – парні сума: ${sum}</p>`)
+	</script>
+</body>
+
+</html>
