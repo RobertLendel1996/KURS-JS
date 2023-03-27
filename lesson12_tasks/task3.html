@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task3</title>
+</head>
+
+<body>
+	<p>Дано масив 30 випадкових цілих чисел.
+		Підрахувати скільки було обмінів під час сортування включеннями.</p>
+	<script>
+		function getRandomNum(minNum, maxNum) {
+			return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+		}
+
+		function getRandomArr(arrLength, minNum, maxNum) {
+			const array = []
+			for (let i = 0; i < arrLength; i++) {
+				let randomNum = getRandomNum(minNum, maxNum)
+				array.push(randomNum)
+			}
+			return array
+		}
+		let randomArr = getRandomArr(10, 1, 40)
+		document.write(`Початковий масив ${randomArr}`)
+		//========================================================================================================================================================
+		function getChangedArrayInclude(arr) {
+			let counter = 0
+			for (let index = 0; index < arr.length; index++) {
+				const currentElement = arr[index]
+				let k = index - 1
+				while (k >= 0 && arr[k] > currentElement) {
+					arr[k + 1] > arr[k]
+					k--
+					counter++
+				}
+				arr[k + 1] = currentElement
+			}
+			return counter
+		}
+		let counterChanged = getChangedArrayInclude(randomArr)
+		document.write(`<p>Під час сортування включеннями потрібно ${counterChanged} обмінів</p>`)
+	</script>
+</body>
+
+</html>
