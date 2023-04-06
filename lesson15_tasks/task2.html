@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task2</title>
+</head>
+
+<body>
+	<style>
+		table {
+			border: 1px solid #000;
+		}
+
+		td {
+			border: 1px solid #000;
+			vertical-align: top;
+			padding: 10px;
+		}
+
+		p {
+			font-size: 22px;
+			font-weight: 700;
+		}
+	</style>
+	<p>
+		<strong>Задача 2.</strong>
+		Створити об’єкт «Авто».
+	</p>
+	<table>
+		<tr>
+			<td>Авто</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Поля(властивості)</td>
+			<td>
+				Марка
+				<br />
+				Розмір бака
+				<br />
+				Кількість наявних літрів
+				<br />
+				Кількість місць
+				<br />
+				Кількість пасажирів
+			</td>
+		</tr>
+		<tr>
+			<td>Методи (дії)</td>
+			<td>
+				Заправка на вказану кількість літрів
+				<br />
+				Виведення кількості пасажирів
+				<br />
+				Додавання пасажирів
+				<br />
+				Висадка пасажирів
+			</td>
+		</tr>
+	</table>
+	<script>
+		class auto {
+			constructor(brand, tankSizeGas, numLitersAvailable, numSeats, numPassengers) {
+				this.brand = brand
+				this.tankSizeGas = tankSizeGas
+				this.numLitersAvailable = numLitersAvailable
+				this.numSeats = numSeats
+				this.numPassengers = numPassengers
+			}
+
+			// Заправка--------------------------------------------------------------
+			refuelSpecifiedNumLiter(liters) {
+				if (this.numLitersAvailable + liters > this.tankSizeGas) {
+					const fuelRest = this.numLitersAvailable + liters - this.tankSizeGas
+					throw new Error(`Бак буде переповнений. Не влізає: ${fuelRest}л.`)
+				}
+				console.log('Заправимо!')
+			}
+
+			// Кількість пасажирів---------------------------------------------------
+			numberPassengers() {
+				console.log(`Кількість пасажирів: ${this.numPassengers}`)
+			}
+
+			// Додавання пасажирів---------------------------------------------------
+			addingPassen(passengers) {
+				if (this.numPassengers + passengers > this.numSeats) {
+					const passRest = this.numPassengers + passengers - this.numSeats
+					throw new Error(`Нема вільних місць. Немає місць для: ${passRest} пасажирів.`)
+				}
+				this.numPassengers += passengers
+				console.log('Куди ми поїдемо?')
+			}
+
+			// Висадка пасажирів-----------------------------------------------------
+			disembarkationPassengers(decreasePas) {
+				if (this.numPassengers - decreasePas < 0)
+					throw new Error('Стільки немає')
+				this.numPassengers -= decreasePas
+				console.log('До зустрічі!')
+			}
+		}
+
+		let automobile = new auto("Audi", 50, 15, 8, 1)
+
+		console.log('Заправка на вказану кількість л (15):  ')
+		automobile.refuelSpecifiedNumLiter(15)
+
+		console.log('Виведення кількості пасажирів:  ')
+		automobile.numberPassengers()
+
+		console.log('Додавання пасажирів (3):  ')
+		automobile.addingPassen(1)
+
+		console.log('Висадка пасажирів (2):  ')
+		automobile.disembarkationPassengers(2)
+	</script>
+</body>
+
+</html>

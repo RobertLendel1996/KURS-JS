@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task4</title>
+</head>
+
+<body>
+	<style>
+		table {
+			border: 1px solid #000;
+		}
+
+		td {
+			border: 1px solid #000;
+			vertical-align: top;
+			padding: 10px;
+		}
+
+		p {
+			font-size: 22px;
+			font-weight: 700;
+		}
+	</style>
+	<p>
+		<strong>Задача 4.</strong>
+		Розробити клас Baner
+	</p>
+	<table>
+		<tr>
+			<td>Поля</td>
+			<td>Масив об’єктів ( графічних зображень та посилань на сайти)</td>
+		</tr>
+		<tr>
+			<td>методи</td>
+			<td>
+				Метод випадкового вибору об’єкта (графічного зображення та
+				посилання)
+				<br />
+				Метод виведення випадкового банера
+			</td>
+		</tr>
+	</table>
+	<script>
+		class Banner {
+			constructor(banner, link) {
+				this.banner = banner
+				this.link = link
+			}
+			getRandomNumber(minVal, maxVal) {
+				return Math.floor(Math.random() * (maxVal - minVal + 1) + minVal)
+			}
+			toString() {
+				return `<a href="${this.link}"><img src="${this.banner}" alt="${this.banner}"></a>`
+			}
+		}
+		let bannerList = [
+			banner1 = new Banner(`img/01.jpg`, `https://www.google.com`),
+			banner2 = new Banner(`img/02.jpg`, `https://www.ukr.net`),
+			banner3 = new Banner(`img/03.jpg`, `https://www.facebook.com`),
+			banner4 = new Banner(`img/04.jpg`, `https://github.com`)
+		]
+		let number = bannerList[0].getRandomNumber(0, bannerList.length - 1)
+		document.write(bannerList[number])
+	</script>
+</body>
+
+</html>
