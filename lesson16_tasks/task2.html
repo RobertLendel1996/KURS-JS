@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task2</title>
+</head>
+
+<body>
+	<p>
+		<strong>Задача 2.</strong>
+		Створити клас TMoney для роботи з грошовими сумами.
+		Сума повинна зберігатися у вигляді доларового еквіваленту.
+		Реалізувати методи додавання/вилучення грошової маси,
+		вказуючи необхідну суму у гривнях, та визначення курсу долара,
+		при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+	</p>
+	<script>
+		class TMoney {
+			#balance
+			#course
+
+			constructor(initBalance, initCourse, minBalance = 0, zeroCourse = 0) {
+				this.minBalance = minBalance
+				this.Balance = initBalance
+				this.zeroCourse = zeroCourse
+				this.Course = initCourse
+			}
+
+			get Balance() {
+				return this.#balance
+			}
+
+			get Course() {
+				return this.#course
+			}
+
+			set Balance(newBalance) {
+				if (newBalance < this.minBalance)
+					throw new Error('Неможливий баланс')
+				this.#balance = newBalance
+			}
+
+			set Course(newCourse) {
+				if (newCourse <= this.zeroCourse)
+					throw new Error('Неможливий курс')
+				this.#course = newCourse
+			}
+
+			increaseMoney(moneyInUAH) {
+				const addMoneyInUSD = moneyInUAH / this.Course
+				this.Balance += addMoneyInUSD
+			}
+
+			decreaseMoney(moneyInUAH) {
+				const decreasedMoneyInUSD = moneyInUAH / this.Course
+				this.Balance -= decreasedMoneyInUSD
+			}
+
+			getCourseAmountHigher100UAH(moneyInUAH) {
+				const moneyInUSD = moneyInUAH / this.Course
+				return (moneyInUAH + 100) / moneyInUSD
+			}
+
+			toString() {
+				return `Ваш баланс: ${this.Balance.toFixed(2)} $ <br> Поточний курс з USD в UAH: ${this.Course} ₴`
+			}
+		}
+
+		const myBalance = new TMoney(100, 40)
+		myBalance.increaseMoney(40)
+		myBalance.increaseMoney(4000)
+		myBalance.decreaseMoney(2000)
+		const newCourse = myBalance.getCourseAmountHigher100UAH(2500)
+		document.write(`
+         <p>${myBalance}</p>
+         <p>курс долара, при якому сума у гривнях збільшиться на 100 (2500 грн + 100 грн) = ${newCourse.toFixed(2)} $</p>
+      `)
+	</script>
+</body>
+
+</html>
