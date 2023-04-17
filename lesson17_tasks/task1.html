@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task1</title>
+</head>
+
+<body>
+	<p>
+		<strong>Задача 1.</strong>
+		Створити клас, що дозволяє виконувати такі операції над масивами: знаходження кількості додатних, кількості
+		від’ємних, кількість входжень деякого числа (статичні методи)
+	</p>
+	<script>
+		class AllOperations {
+			constructor(array) {
+				this.array = array
+			}
+			static positiveNumber(array) {
+				return array.reduce((prevSum, el) => (el > 0 ? (prevSum + 1) : prevSum), 0)
+			}
+			static negativeNumber(array) {
+				return array.reduce((prevSum, el) => (el < 0 ? (prevSum + 1) : prevSum), 0)
+			}
+			static numOccurrencesSome(array, number) {
+				return array.reduce((prevSum, el) => (el === number ? (prevSum + 1) : prevSum), 0)
+			}
+			toString(number) {
+				return `
+				<p>Кількість додатніх: ${AllOperations.positiveNumber(this.array)}</p>
+				<p>Кількість від’ємних: ${AllOperations.negativeNumber(this.array)}</p>
+				<p>Кількість входжень: ${AllOperations.numOccurrencesSome(this.array, number)}</p>
+				`
+			}
+		}
+		let r = new AllOperations([1, 2, 4, -2, 12, -2, 3, -3])
+		document.write(r.toString(1))
+	</script>
+</body>
+
+</html>
