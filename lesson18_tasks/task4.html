@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task4</title>
+</head>
+
+<body>
+	<p>
+		<strong>Задача 4.</strong>
+		Наперед задано у скрипті масив зі списком бажань.
+		Після завантаження сторінки випадковим чином вибираються 3
+		і відображаються у окремих div (їх треба створити і додати на сторінку)
+	</p>
+	<style>
+		div {
+			font-size: 25px;
+			font-weight: 700;
+			opacity: 0;
+			transform: translate(-100%, 0px);
+			transition: all 0.7s ease 0s;
+		}
+
+		.loaded div {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+	</style>
+	<script>
+		const optationList = ['Мир', 'Успіх', 'Щастя', 'Гроші', 'Машина', 'Торт', 'Морозиво', 'Кохання', 'Годинник', 'Телевізор']
+
+		function randomOptation(optationList) {
+			return optationList[0 + Math.floor(Math.random() * (optationList.length - 1 + 1))]
+		}
+
+		function appendDiv(max, optationList) {
+			for (let i = 0; i < max; i++) {
+				let div = document.createElement('div')
+				div.innerText = randomOptation(optationList)
+				document.body.append(div)
+			}
+		}
+		appendDiv(3, optationList)
+		window.onload = function() {
+			document.documentElement.classList.add('loaded')
+		}
+	</script>
+</body>
+
+</html>

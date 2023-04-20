@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task6</title>
+</head>
+
+<body>
+	<p>
+		<strong>Задача 6.</strong>
+		Користувач задає кількість оцінок і натискає на кнопку «get table».
+		В результаті формується таблиця з input,
+		куди користувач вводить оцінки. Після цього натискає на кнопку “get sum” і
+		знаходить середнє значення.
+	</p>
+	<div class="wrapper">
+
+		<div class="main-block">
+			<div class="title">Price Number</div>
+			<label for="priceNumber"></label>
+			<input type="number" id="priceNumber" value="0">
+			<div>
+				<button id="getTable" class="button">Get table</button>
+			</div>
+		</div>
+
+		<div>
+			<button id="getSum" class="button">Get sum</button>
+		</div>
+
+	</div>
+	<style>
+		body {
+			background: linear-gradient(180deg, rgba(200, 200, 200, 1) 23%, rgba(255, 255, 255, 1) 83%);
+			min-height: 100vh;
+		}
+
+		input {
+			font-size: 20px;
+			padding: 5px;
+			margin: 3px;
+		}
+
+		div,
+		input {
+			margin-bottom: 10px;
+		}
+
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			transform: translate(0px, -100%) scale(0);
+			transition: all 1s ease 0s;
+		}
+
+		.title {
+			font-size: 26px;
+			font-weight: 600;
+		}
+
+		.button {
+			padding: 10px;
+			font-size: 23px;
+		}
+
+		.loaded .wrapper {
+			transform: translate(0px, 0px) scale(1);
+		}
+	</style>
+	<script>
+		let mainBlock = document.querySelector('.main-block')
+		let getTable = document.getElementById('getTable')
+
+		getTable.onclick = function() {
+			let priceNumber = parseInt(document.getElementById('priceNumber').value)
+			for (let i = 0; i < priceNumber; i++) {
+				let input = document.createElement('input')
+				input.setAttribute('type', 'number')
+				input.setAttribute('class', 'scores')
+				mainBlock.append(input)
+			}
+		}
+		document.getElementById('getSum').onclick = function getAverageValue() {
+			let scores = document.querySelectorAll('.scores')
+			let sum = 0
+			let count = 0
+			for (const scoreValue of scores) {
+				sum += parseFloat(scoreValue.value)
+				count++
+			}
+			let p = document.createElement('p')
+			p.innerText = 'Sum = ' + (sum / count).toFixed(1)
+			document.querySelector('.wrapper').append(p)
+		}
+		window.onload = function() {
+			document.documentElement.classList.add('loaded')
+		}
+	</script>
+</body>
+
+</html>

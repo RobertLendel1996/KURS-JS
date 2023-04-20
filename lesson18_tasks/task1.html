@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task1</title>
+</head>
+
+<body>
+	<p>
+		<strong>Задача 1.</strong>
+		Розробити калькулятор
+	</p>
+	<div class="section">
+		<div class="container">
+			<div class="block">
+				<div class="item">
+					<label for="num1"></label>
+					<input type="number" id="num1" placeholder="Введіть перше число" class="input">
+				</div>
+				<div class="item">
+					<label for="num2"></label>
+					<input type="number" id="num2" placeholder="Введіть друге число" class="input">
+				</div>
+				<div class="buttons">
+					<button id="plus" class="button">Додати</button>
+					<button id="minus" class="button">Відняти</button>
+					<button id="multiply" class="button">Помножити</button>
+					<button id="division" class="button">Поділити</button>
+				</div>
+				<div class="item item-result">
+					<label for="result"></label>
+					<input type="number" id="result" placeholder="Результат" class="input">
+				</div>
+			</div>
+		</div>
+	</div>
+	<style>
+		body {
+			background: linear-gradient(180deg, rgba(200, 200, 200, 1) 23%, rgba(255, 255, 255, 1) 83%);
+			min-height: 100vh;
+		}
+
+		.section {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		.container {}
+
+		.block {
+			border: 1px solid #000;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+			padding: 20px;
+			transform: rotate(-520deg) scale(0);
+			transition: all 1s ease 0s;
+			overflow: hidden;
+		}
+
+		.loaded .block {
+			transform: rotate(0deg) scale(1);
+		}
+
+		.item {
+			margin-bottom: 20px;
+			opacity: 0;
+			transform: translate(-200%, 0px);
+			transition: all 1.5s ease;
+		}
+
+		.item:nth-child(1) {
+			transition-delay: .2s;
+		}
+
+		.item:nth-child(2) {
+			transition-delay: .4s;
+		}
+
+		.item:nth-child(3) {}
+
+		.item-result {
+			opacity: 0;
+			transform: translate(-200%, 0px);
+			transition: all 1.5s ease 1.4s;
+		}
+
+		.loaded .item {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+
+		.input {
+			font-size: 20px;
+			padding: 5px;
+			background-color: rgb(255, 0, 0, 0.1);
+		}
+
+		.buttons {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.button {
+			font-size: 20px;
+			width: 100%;
+			padding: 5px;
+			background-color: rgb(255, 0, 0, 0.1);
+			cursor: pointer;
+			opacity: 0;
+			transform: translate(-200%, 0px);
+			transition: all 1.5s ease;
+		}
+
+		.button:nth-child(1) {
+			transition-delay: .6s;
+		}
+
+		.button:nth-child(2) {
+			transition-delay: .8s;
+		}
+
+		.button:nth-child(3) {
+			transition-delay: 1s;
+		}
+
+		.button:nth-child(4) {
+			transition-delay: 1.2s;
+		}
+
+		.loaded .button {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+	</style>
+	<script>
+		function sum() {
+			let num1 = parseFloat(document.getElementById('num1').value)
+			let num2 = parseFloat(document.getElementById('num2').value)
+			let sum = num1 + num2
+			document.getElementById('result').value = sum
+		}
+
+		function minus() {
+			let num1 = parseFloat(document.getElementById('num1').value)
+			let num2 = parseFloat(document.getElementById('num2').value)
+			let minus = num1 - num2
+			document.getElementById('result').value = minus
+		}
+
+		function multiply() {
+			let num1 = parseFloat(document.getElementById('num1').value)
+			let num2 = parseFloat(document.getElementById('num2').value)
+			let multiply = num1 * num2
+			document.getElementById('result').value = multiply
+		}
+
+		function division() {
+			let num1 = parseFloat(document.getElementById('num1').value)
+			let num2 = parseFloat(document.getElementById('num2').value)
+			let division = num1 / num2
+			document.getElementById('result').value = division.toFixed(2)
+		}
+
+		window.onload = function() {
+			document.documentElement.classList.add('loaded')
+			document.getElementById('plus').onclick = sum
+			document.getElementById('minus').onclick = minus
+			document.getElementById('multiply').onclick = multiply
+			document.getElementById('division').onclick = division
+		}
+	</script>
+</body>
+
+</html>

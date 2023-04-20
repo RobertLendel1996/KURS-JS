@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task6</title>
+</head>
+
+<body>
+	<p>
+		<strong>Задача 6.</strong>
+		Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів
+		транспорту (авто, автобус, літак - випадаючий список), харчування
+		(сніданок, обід, вечеря – checkbоx) та одного з 3-х гідів(використати - radio buttons).
+		Ціни визначте самі. Підрахувати загальну вартість.
+	</p>
+	<div class="wrapper">
+		<div class="block">
+			<h2>Bид транспорту</h2>
+			<select id="transport">
+				<option value="100">Авто - 100</option>
+				<option value="200">Автобус - 200</option>
+				<option value="300">Літак - 500</option>
+			</select>
+		</div>
+		<div class="block">
+			<h2>xарчування</h2>
+			<div class="checkbox">
+				<label>
+					сніданок - 100
+					<input type="checkbox" value="100">
+				</label>
+			</div>
+			<div class="checkbox">
+				<label>
+					обід - 200
+					<input type="checkbox" value="200">
+				</label>
+			</div>
+			<div class="checkbox">
+				<label>
+					вечеря - 300
+					<input type="checkbox" value="300">
+				</label>
+			</div>
+		</div>
+		<div class="block">
+			<h2>Виберіть одного гіда</h2>
+			<div class="radio">
+				<label>
+					гід_1 - 100
+					<input type="radio" value="100">
+				</label>
+			</div>
+			<div class="checkbox">
+				<label>
+					гід_2 - 200
+					<input type="radio" value="200">
+				</label>
+			</div>
+			<div class="checkbox">
+				<label>
+					гід_3 - 300
+					<input type="radio" value="300">
+				</label>
+			</div>
+		</div>
+		<button id="button">Загальна сума</button>
+	</div>
+	</div>
+	<style>
+		body {
+			background: linear-gradient(180deg, rgba(200, 200, 200, 1) 23%, rgba(255, 255, 255, 1) 83%);
+			min-height: 100vh;
+			font-size: 20px;
+		}
+
+		h2 {
+			text-transform: uppercase;
+		}
+
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			gap: 20px;
+		}
+
+		p {
+			font-size: 20px;
+			font-weight: 700;
+		}
+
+		button {
+			font-size: 20px;
+			padding: 10px;
+			cursor: pointer;
+			transform: translate(-60px, -20px);
+			opacity: 0;
+			transition: all 1s ease 0.6s;
+		}
+
+		.loaded button {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+
+		.block {
+			transform: translate(-60px, -20px);
+			opacity: 0;
+			transition: all 1s ease;
+		}
+
+		.block:nth-child(2) {
+			transition-delay: 0.2s;
+		}
+
+		.block:nth-child(3) {
+			transition-delay: 0.4s;
+		}
+
+		.loaded .block {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+	</style>
+	<script>
+		document.getElementById('button').onclick = function() {
+			let sum = 0
+			sum += parseInt(document.getElementById('transport').value)
+			let inputs = document.getElementsByTagName('input')
+			for (const input of inputs) {
+				if (input.checked)
+					sum += parseInt(input.value)
+			}
+			let p = document.createElement('p')
+			p.innerText = `Загальна сума = ${sum}`
+			document.querySelector('.wrapper').append(p)
+		}
+		window.onload = function() {
+			document.documentElement.classList.add('loaded')
+		}
+	</script>
+</body>
+
+</html>
+
+
+
+
+
+<!-- 
+	<script>
+		document.getElementById('button').onclick = function() {
+			let sum = 0
+			sum += parseInt(document.getElementById('transport').value)
+			let inputs = document.getElementsByTagName('input')
+			for (const input of inputs) {
+				if(input.checked) 
+				sum += parseInt(input.value)
+			}
+			let p = document.createElement('p')
+			p.innerText = `Загальна вартість = ${sum}`
+			document.querySelector('.wrapper').append(p)
+		}
+	</script>
+ -->

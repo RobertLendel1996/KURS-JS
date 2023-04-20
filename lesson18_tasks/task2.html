@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task2</title>
+</head>
+
+<body>
+	<p>
+		<strong>Задача 2.</strong>
+		Зробити конвертер валют (курси валют – константи у скрипті)
+	</p>
+	<div class="section">
+		<div class="container">
+			<div class="block">
+				<div class="item item_1">
+					<label for="grn">Гривня</label>
+					<input type="number" id="grn" placeholder="Введіть суму в гривнях" class="input">
+				</div>
+
+				<button id="result" class="button">Конвертувати</button>
+				<div class="item item_2">
+					<label for="dol">Євро</label>
+					<input type="number" id="dol" placeholder="Євро" class="input">
+				</div>
+				<div class="item item_3">
+					<label for="euro">Долар</label>
+					<input type="number" id="euro" placeholder="Долар" class="input">
+				</div>
+			</div>
+		</div>
+	</div>
+	<style>
+		body {
+			background: linear-gradient(180deg, rgba(200, 200, 200, 1) 23%, rgba(255, 255, 255, 1) 83%);
+			min-height: 100vh;
+		}
+
+		.section {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		.container {}
+
+		.block {
+			border: 1px solid #000;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+			padding: 20px;
+			transform: translate(0, 200%);
+			opacity: 0;
+			transition: all 1s ease 0s;
+			overflow: hidden;
+		}
+
+		.loaded .block {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+
+		.item {
+			margin-bottom: 20px;
+			opacity: 0;
+			transition: all 1.5s ease;
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+		}
+
+		.item-title {
+			font-size: 16px;
+		}
+
+		.item_1 {
+			transform: translate(0, -200%);
+			transition-delay: .3s;
+		}
+
+		.item_2 {
+			transform: translate(200%, 0);
+			transition-delay: .9s;
+		}
+
+		.item_3 {
+			transform: translate(0px, 200%);
+			transition-delay: 1.2s;
+		}
+
+		.loaded .item {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+
+		.input {
+			font-size: 20px;
+			padding: 5px;
+			background-color: rgb(255, 0, 0, 0.1);
+		}
+
+		.button {
+			font-size: 20px;
+			width: 100%;
+			padding: 5px;
+			background-color: rgb(255, 0, 0, 0.1);
+			cursor: pointer;
+			opacity: 0;
+			transform: translate(-200%, 0px);
+			transition: all 1.5s ease 0.6s;
+			margin-bottom: 20px;
+		}
+
+		.loaded .button {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+	</style>
+	<script>
+		function converter() {
+			const dollarCourse = 37.5
+			const euroCourse = 40
+			let grn = parseFloat(document.getElementById('grn').value)
+			let dollar = grn / dollarCourse
+			let euro = grn / euroCourse
+			document.getElementById('dol').value = dollar.toFixed(2)
+			document.getElementById('euro').value = euro.toFixed(2)
+		}
+		window.onload = function() {
+			document.getElementById('result').onclick = converter
+			document.documentElement.classList.add('loaded')
+		}
+	</script>
+</body>
+
+</html>
